@@ -21,3 +21,6 @@ data/*
 *.onnx
 wandb/
 mlruns/
+
+# Private talk-prep notes, not part of the submission.
+STUDY_NOTES.md
