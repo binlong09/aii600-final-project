@@ -2,7 +2,7 @@
 
 ## Hypothesis
 
-A model that uses size, age, lot, location, property type, and sale date makes better offers on houses near Reston, Virginia than the rule buyers use: the zip code's median price per square foot times the house's square feet.
+A model that uses size, age, lot, location, property type, and sale date makes better offers on houses near Reston, Virginia than a common rule of thumb: the zip code's median price per square foot times the house's square feet.
 
 The quantity I estimate is the sale price of a house, in dollars, for houses sold in the months after my training data ends. I give a low, a middle, and a high estimate. I will fix the number of test months before I fit any model.
 

@@ -34,6 +34,12 @@ every choice in a live 3-minute talk. The student decides. The AI advises and bu
    not need approval. Just report them.
 8. Never push to GitHub without the student's OK.
 9. Keep this file up to date when decisions change.
+10. Keep a running record in STUDY_NOTES.md so the student understands every
+    step and can build the slide deck from it. Three sections there:
+    "Project log" (dated, plain words: what was decided or found, why, and
+    which slide it feeds), "Talk plan" (the slide mapping below), and the
+    question-and-answer sections. Add to the log after every decision, every
+    result, and every question the student asks. Never leave it for later.
 
 ## Writing style for submitted files
 
@@ -50,8 +56,10 @@ wants to spot houses priced below what they are worth.
   "undervalued" when its asking price is below the model's low estimate of the
   sale price.
 - Hypothesis: a model using size, age, lot, location, property type, and sale
-  date predicts sale prices better than the buyers' rule: the area's median
-  price per square foot times the house's square feet.
+  date predicts sale prices better than a common rule of thumb: the area's
+  median price per square foot times the house's square feet. Call it "a
+  common rule of thumb", never "the rule buyers use" (changed 2026-11-18:
+  there is no evidence most buyers decide this way).
 - Data: past home sales with property details. Start with Fairfax County.
   Adding nearby counties (such as Loudoun) is the student's decision after
   seeing the counts.
@@ -94,6 +102,30 @@ wants to spot houses priced below what they are worth.
 - Step 4, after Step 3 and with the student's OK: the student types in a few
   live listings. Show low, middle, high estimates and which are flagged. A
   demo for the talk, not part of the held-out score.
+
+## Talk plan (agreed 2026-11-18, build after Step 3)
+
+The repo fixes the deck: title slide plus exactly four slides, three minutes,
+no added slides. The student's ideas map onto them like this:
+
+- Title: one spoken sentence on the question (house hunting near Reston, what
+  is the most I should offer). No separate proposal slide.
+- Action: "Offer the model's low estimate. Visit listings priced below it."
+  Example table with two live listings: asking price, rule of thumb value,
+  model low / middle / high, verdict.
+- Reason: the held-out score only (share won, share overpaid, average dollars
+  overpaid, model vs rule of thumb at the same comfort level). Must match the
+  notebook exactly.
+- Risk: one number (chance and size of overpaying) plus the limit that a
+  flagged house may be cheap for a reason the data cannot see. The student's
+  own house visit can be a one-sentence example here.
+- Value: what being less wrong is worth in dollars.
+- Data, methods, and statistics stay in analysis.ipynb and in Q&A prep.
+- Wording: the model "flags" a house, it never "proves" anything.
+- The two live listings are picked by a fixed rule BEFORE seeing the model's
+  verdict (rule still to be chosen by the student), typed in by hand, shown
+  as a plain table, not a Zillow screenshot.
+- No class vote. Q&A comes after the three minutes and has no slide.
 
 ## Deadlines
 
@@ -143,3 +175,18 @@ wants to spot houses priced below what they are worth.
 - 2026-11-18: project changed from aircraft icing to house offers near Reston.
   Earlier local drafts were discarded before any commit. Proposal and first
   decisions.md entry in progress.
+- 2026-11-18: Step 2 choices made (see decisions.md): Fairfax only; sales
+  2020-01 to 2026-09; single family and townhouse; label "Valid and verified
+  sale"; price $50,000 to $5,000,000; drop missing living area, year built,
+  bedrooms, zip; one copy of exact duplicates; drop sales before year built
+  or remodel year. Pipeline: fetch_data.py, prepare_data.py (join only),
+  select_sales.py (filters), then the notebook reads data/fairfax_selected.csv.
+- The student asked for build work to be delegated to a subagent while the
+  main session orchestrates and answers questions.
+- 2026-11-18: two more rules: drop living area under 400 sq ft, drop both rows
+  of same-house same-day price conflicts. Final: 70,306 sales in
+  data/fairfax_selected.csv. Step 2 pushed. Next is Step 3. Open items for
+  Step 3: 1,213 townhouses have no lot size; September 2026 is a partial
+  month; 754 resales within a year (possible flips); 11 zips have fewer than
+  100 sales; assessed values exist for tax year 2026 only.
+
