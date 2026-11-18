@@ -6,7 +6,7 @@ A model that uses size, age, lot, location, property type, and sale date makes b
 
 The quantity I estimate is the sale price of a house, in dollars, for houses sold in the months after my training data ends. I give a low, a middle, and a high estimate. I will fix the number of test months before I fit any model.
 
-"Better" means this. Both methods make an offer at the same comfort level, for example at most a 10% chance of paying more than the sale price. On held-out sales, the better method would have won more houses without overpaying more often. Winning means my offer is at or above the sale price. This is a simplification of real bidding.
+"Better" means this. Both methods make an offer at the same comfort level, for example at most a 10% chance of paying more than the sale price. On held-out sales, the better method overpays no more often, overpays by fewer dollars, and makes more close offers. A close offer is between 95% and 100% of the sale price. This is a simplification of real bidding.
 
 ## Data
 

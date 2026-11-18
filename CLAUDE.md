@@ -79,11 +79,12 @@ wants to spot houses priced below what they are worth.
 - Offer rule: the student would rather pass on a good deal than overpay.
   Comfort level: at most a 10% chance of paying more than the sale price. The
   offer is the model's 10% low estimate. Show 5%, 10%, and 25% side by side.
-- Decision units: on held-out sales, for each comfort level, the share of
-  houses the offer would have won (offer at or above sale price), the share
-  overpaid, and the average dollars overpaid. Same for the baseline at the
-  same comfort levels. This simplifies real bidding: say so wherever results
-  appear.
+- Decision units (changed 2026-11-18, see decisions.md "How I score offers"):
+  on held-out sales, for each comfort level, the share overpaid, the average
+  dollars overpaid, and the share of close offers (95% to 100% of the sale
+  price). "Share won" was dropped: it was the same event as overpaid. Same
+  for the baseline at the same comfort levels. This simplifies real bidding:
+  say so wherever results appear.
 - No cost for losing a house: that cost is close to zero for the student, and
   a rule built on it would say never buy. Record as the rejected alternative.
 - Known limit, stated wherever results appear: a flagged house may be cheap
@@ -189,4 +190,17 @@ no added slides. The student's ideas map onto them like this:
   Step 3: 1,213 townhouses have no lot size; September 2026 is a partial
   month; 754 resales within a year (possible flips); 11 zips have fewer than
   100 sales; assessed values exist for tax year 2026 only.
-
+- 2026-11-18: Step 3 core done and pushed for the preliminary checkpoint.
+  house_model.py holds the functions, analysis.ipynb runs top to bottom.
+  Split cutoff 2026-03-01, both methods learn from 2025-03-01 to 2026-02-28,
+  cut points by property type, offer = 10% low estimate. Test (5,816 sales,
+  scored once): overpaid model 485 vs rule 541, average dollars over $60,822
+  vs $110,308, close offers 509 vs 331, typical miss 6.9% vs 12.6%.
+- Still open in Step 3: the calibration check, the Beta range, and the noise
+  versus bias note are NOT in the notebook. The functions exist in
+  house_model.py. The student asked for time to understand them first
+  (does not yet know what a Beta range is). Explain again, slowly, with the
+  3-of-10 example, then add after the student's nod. Also open: the student
+  is "not sure" about the "assumption I trust least" sentence (draft: flat
+  price level inside the 12-month window); whether to show the assessed
+  value as a second baseline; the rule for picking live listings (Step 4).
